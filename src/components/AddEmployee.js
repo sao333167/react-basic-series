@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 function AddEmployee(props) {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
+  const [img, setImg] = useState('');
 
     
     
@@ -17,9 +17,9 @@ function AddEmployee(props) {
     <>
       <button
         onClick={handleShow}
-        className="block mx-auto px-4 py-2 mt-10 text-sm bg-purple-400 text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
+        className="block mx-auto px-4 py-2 mt-10 text-sm bg-gray-200 text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
       >
-        + Add Employee
+        + New Employee
       </button>
       {/* <Button variant="primary" onClick={handleShow}>
         Launch static backdrop modal
@@ -32,14 +32,13 @@ function AddEmployee(props) {
         keyboard={false}
       >
         <Modal.Header closeButton className="text-gray-500">
-          <Modal.Title>+ Add Employee</Modal.Title>
+          <Modal.Title> + New Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form
             onSubmit={(e) => {
-              handleClose();
               e.preventDefault();
-              props.updateEmployee(props.id, name, role);
+              props.newEmployee(name, role, img);
             }}
             id="editmodal"
             className="w-full max-w-sm"
@@ -104,9 +103,9 @@ function AddEmployee(props) {
                   id="img"
                   placeholder="https://google.com/"
                   type="text"
-                  value={role}
+                  value={img}
                   onChange={(e) => {
-                    setRole(e.target.value);
+                    setImg(e.target.value);
                   }}
                 />
               </div>
@@ -123,6 +122,7 @@ function AddEmployee(props) {
           <button
             form="editmodal"
             className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
+                  onClick={handleClose}
           >
             Add
           </button>
