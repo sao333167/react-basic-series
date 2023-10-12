@@ -4,10 +4,10 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 
 const navigation = [
-  { name: "Employees", href: "/employees"},
-  { name: "Customers", href: "/customers"},
-  { name: "Projects", href: "/other"},
-  { name: "Calendar", href: "/other1"},
+  { name: "Employees", href: "/employees" },
+  { name: "Customers", href: "/customers" },
+  { name: "Dictionary", href: "/dictionary" },
+  { name: "Calendar", href: "/other1" },
 ];
 
 function classNames(...classes) {
@@ -44,12 +44,7 @@ export default function Header(props) {
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
-                      {/* // className={classNames(
-                    //   item.current
-                    //     ? "no-underline bg-gray-900 text-white"
-                    //     : "no-underline text-gray-300 hover:bg-gray-700 hover:text-white",
-                    //   "rounded-md px-3 py-2 text-sm font-medium"
-                    // )} */}
+                      
                       {navigation.map((item) => (
                         <NavLink
                           key={item.name}
@@ -171,11 +166,10 @@ export default function Header(props) {
           </>
         )}
       </Disclosure>
-      <div className="bg-gray-100">
-
-      </div>
-      <div className="max-w-7xl mx-auto h-screen px-2 py-2">
+      <div className="bg-gray-200">
+        <div className="max-w-7xl mx-auto h-screen px-2 py-2">
         {props.children}
+        </div>
       </div>
     </>
   );
