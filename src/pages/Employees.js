@@ -70,7 +70,7 @@ function Employees() {
 
   const showEmployee = true;
   return (
-    <div className="App bg-gray-100 h-screen">
+    <div className="App">
       {showEmployee ? (
         <>
          
